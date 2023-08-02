@@ -14,7 +14,7 @@ const LikeSection = props => {
         className='like-section'
         key='likes-icons-container'
       >
-        <div className='like-section-wrapper'>
+        <div onClick={likePost} className='like-section-wrapper'>
           ❤️
         </div>
         <div className='like-section-wrapper'>
