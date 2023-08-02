@@ -38,10 +38,19 @@ const App = () => {
     }))
   };
 
+  const getFilteredPosts = ()=> {
+    const infoNormalized = searchInfo.trim().toLowerCase()
+    if(!infoNormalized) return posts
+    return posts.filter(pst => {
+      return pst.username.toLowerCase().includes(infoNormalized)
+    })
+  }
+
+
   return (
     <div className='App'>
-      <SearchBar/>
-      <Posts likePost={likePost} posts={posts}/>
+      <SearchBar setSearchInfo={setSearchInfo}/>
+      <Posts likePost={likePost} posts={getFilteredPosts()}/>
       {/* Check the implementation of each component, to see what props they require, if any! */}
     </div>
   );
